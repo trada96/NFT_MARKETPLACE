@@ -13,6 +13,7 @@ interface IERC721 {
 // File: contracts/TradaMarket.sol
 
 // SPDX-License-Identifier: MIT
+
 pragma solidity ^0.8.11;
 
 
@@ -62,8 +63,8 @@ contract TradaMarket {
     uint private _listingId = 0;
     mapping(uint =>Listing) private _listings;
 
-    function getListing(uint _listingId) public view returns (Listing memory){
-        return _listings[_listingId];
+    function getListing(uint listingId) public view returns (Listing memory){
+        return _listings[listingId];
     }
 
     function listToken(address token, string memory symbol, uint tokenId, uint price) private {
