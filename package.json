@@ -1,16 +1,20 @@
 {
-    "name": "martket place",
-    "version": "1.0.0",
-    "description": "",
-    "main": "truffle-config.js",
-    "directories": {
-        "test": "test"
-    },
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "merge": "node node_modules/truffle-flattener ./contracts/TradaMarket.sol > TradaMarket-merge.sol"
-    },
-    "dependencies": {
-        "truffle-flattener": "^1.5.0"
-    }
+  "name": "avive",
+  "version": "1.0.0",
+  "description": "",
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "merge": "node node_modules/truffle-flattener ./contracts/LandAuction.sol | awk '/SPDX-License-Identifier/&&c++>0 {next} 1' | awk '/pragma experimental ABIEncoderV2;/&&c++>0 {next} 1' > LandAuction-merge.sol "
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "^4.5.0",
+    "dotenv": "^16.0.0",
+    "truffle-assertions": "^0.9.2",
+    "truffle-flattener": "^1.6.0",
+    "web3": "^1.7.1"
+  }
 }
